@@ -1,0 +1,24 @@
+From 8dfcbdfe2b97e773e2c761fa47ea7db93059e6e5 Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Sat, 21 Dec 2024 21:01:50 +0330
+Subject: [PATCH 14/28] add prettier to package.json
+
+---
+ package.json | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/package.json b/package.json
+index 6651d55..30cf94e 100644
+--- a/package.json
++++ b/package.json
+@@ -8,7 +8,6 @@
+     "start": "next start",
+     "lint": "next lint",
+     "prettier:check": "prettier --check ."
+-    
+   },
+   "dependencies": {
+     "react": "^18",
+-- 
+2.43.0.windows.1
+

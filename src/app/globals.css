@@ -64,6 +64,10 @@ a {
   text-decoration: none;
 }
 
+.light-mode {
+  color-scheme: light;
+}
+
 body {
   background-color: var(--color-default-background);
   color: var(--color-default-foreground);

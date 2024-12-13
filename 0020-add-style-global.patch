@@ -1,0 +1,73 @@
+From 51513e4c3d22813bfd73296f7917a24da26bf775 Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Mon, 23 Dec 2024 11:07:52 +0330
+Subject: [PATCH 20/28] add style global
+
+---
+ src/app/globals.css | 44 ++++++++++++++++++++++++++++++++------------
+ 1 file changed, 32 insertions(+), 12 deletions(-)
+
+diff --git a/src/app/globals.css b/src/app/globals.css
+index b70a729..e9cd2ca 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -1,10 +1,40 @@
++:root {
++  --color-gray-98: hsl(0deg 0% 98%);
++  --color-gray-90: hsl(0deg 0% 90%);
++  --color-gray-80: hsl(0deg 0% 80%);
++  --color-gray-70: hsl(0deg 0% 70%);
++  --color-gray-40: hsl(0deg 0% 40%);
++  --color-gray-30: hsl(0deg 0% 30%);
++  --color-gray-20: hsl(0deg 0% 20%);
++  --color-gray-16: hsl(0deg 0% 16%);
++  --color-gray-12: hsl(0deg 0% 12%);
++  --color-gray-10: hsl(0deg 0% 10%);
++
++  --color-default-background: var(--color-gray-10);
++  --color-default-foreground: var(--color-gray-98);
++
++  --color-primary: hsl(335deg 71% 64%);
++  --color-primary-fade: hsl(335deg 71% 94%);
++  --color-primary-lighter: hsl(335deg 71% 68%);
++  --color-primary-darker: hsl(335deg 71% 60%);
++  --color-primary-opposite: var(--color-gray-10);
++
++  --border-radius: 0.875rem;
++
++  --full-width: 75rem;
++  --full-width-padding-inline: calc(max(100% - var(--full-width), 2rem) / 2);
++
++  --animation-duration-fast: 0.1s;
++  --animation-duration-normal: 0.5s;
++  --animation-duration-slow: 1s;
++}
++
+ *,
+ *::before,
+ *::after {
+-  box-sizing: border-box;
+-
+   margin: 0;
+   padding: 0;
++  box-sizing: border-box;
+ }
+ 
+ input,
+@@ -20,13 +50,3 @@ option,
+ optgroup {
+   font: inherit;
+ }
+-
+-ul {
+-  list-style: none;
+-}
+-
+-a {
+-  color: inherit;
+-
+-  text-decoration: none;
+-}
+-- 
+2.43.0.windows.1
+

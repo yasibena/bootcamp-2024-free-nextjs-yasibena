@@ -1,0 +1,21 @@
+From 417cfc0b8571cc2c4de6ad666fb1188da63a6d0c Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Fri, 13 Dec 2024 12:25:13 +0330
+Subject: [PATCH 02/28] change read me
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index ca29e73..87ef228 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1 @@
+-# bootcamp-2024-free-nextjs-yasibena
+\ No newline at end of file
++Bookify
+\ No newline at end of file
+-- 
+2.43.0.windows.1
+

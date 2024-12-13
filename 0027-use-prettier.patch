@@ -1,0 +1,231 @@
+From d119e339174e193761c0ede1e2bf47bfecff75fb Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Wed, 25 Dec 2024 12:06:43 +0330
+Subject: [PATCH 27/28] use prettier
+
+---
+ src/app/page.module.css                       | 76 ++++++++--------
+ src/components/footer/footer.module.css       | 88 +++++++++----------
+ .../global-search-box.component.tsx           |  5 +-
+ src/components/header/header.module.css       |  2 +-
+ 4 files changed, 84 insertions(+), 87 deletions(-)
+
+diff --git a/src/app/page.module.css b/src/app/page.module.css
+index 0dffdf3..7ddae94 100644
+--- a/src/app/page.module.css
++++ b/src/app/page.module.css
+@@ -1,44 +1,44 @@
+ .home {
+-    display: grid;
+-    justify-items: center;
+-    align-content: center;
+-    gap: 2rem;
+-  
+-    min-block-size: 100%;
+-  
+-    h1 {
+-      display: inline-flex;
+-      align-items: center;
+-      gap: 1rem;
+-  
+-      font-size: 2.5rem;
+-    }
+-  
+-    .logo {
+-      width: 120px;
+-      height: 120px;
++  display: grid;
++  justify-items: center;
++  align-content: center;
++  gap: 2rem;
++
++  min-block-size: 100%;
++
++  h1 {
++    display: inline-flex;
++    align-items: center;
++    gap: 1rem;
++
++    font-size: 2.5rem;
++  }
++
++  .logo {
++    width: 120px;
++    height: 120px;
++  }
++
++  .history {
++    display: flex;
++    flex-wrap: wrap;
++    align-items: center;
++    gap: 1rem;
++
++    .title {
+     }
+-  
+-    .history {
++
++    > ul {
+       display: flex;
+-      flex-wrap: wrap;
+-      align-items: center;
+       gap: 1rem;
+-  
+-      .title {
+-      }
+-  
+-      > ul {
+-        display: flex;
+-        gap: 1rem;
+-  
+-        > li {
+-          background-color: var(--color-gray-20);
+-  
+-          padding: 0.25rem 0.75rem;
+-  
+-          border-radius: 999rem;
+-        }
++
++      > li {
++        background-color: var(--color-gray-20);
++
++        padding: 0.25rem 0.75rem;
++
++        border-radius: 999rem;
+       }
+     }
+-  }
+\ No newline at end of file
++  }
++}
+diff --git a/src/components/footer/footer.module.css b/src/components/footer/footer.module.css
+index 34c4430..dd67f40 100644
+--- a/src/components/footer/footer.module.css
++++ b/src/components/footer/footer.module.css
+@@ -1,51 +1,51 @@
+ .footer {
+-    background-color: var(--color-gray-12);
+-  
++  background-color: var(--color-gray-12);
++
++  display: grid;
++  grid-template-areas: "writings visuals" "copy copy";
++  column-gap: 1rem;
++  row-gap: 2rem;
++
++  padding-block: 1rem;
++
++  .writings {
++    grid-area: writings;
++
++    .logo {
++      margin-block-end: 0.25rem;
++
++      font-size: 2rem;
++      font-weight: 700;
++    }
++  }
++
++  .visuals {
++    grid-area: visuals;
++
+     display: grid;
+-    grid-template-areas: "writings visuals" "copy copy";
+-    column-gap: 1rem;
+-    row-gap: 2rem;
+-  
+-    padding-block: 1rem;
+-  
+-    .writings {
+-      grid-area: writings;
+-  
+-      .logo {
+-        margin-block-end: 0.25rem;
+-  
+-        font-size: 2rem;
+-        font-weight: 700;
+-      }
++    justify-items: center;
++    gap: 1rem;
++
++    .certificates {
++      display: flex;
++      gap: 2rem;
+     }
+-  
+-    .visuals {
+-      grid-area: visuals;
+-  
+-      display: grid;
+-      justify-items: center;
++
++    .socials {
++      display: flex;
+       gap: 1rem;
+-  
+-      .certificates {
+-        display: flex;
+-        gap: 2rem;
+-      }
+-  
+-      .socials {
+-        display: flex;
+-        gap: 1rem;
+-  
+-        > li {
+-          a {
+-            font-size: 1.5rem;
+-          }
++
++      > li {
++        a {
++          font-size: 1.5rem;
+         }
+       }
+     }
+-  
+-    .copy {
+-      grid-area: copy;
+-  
+-      text-align: center;
+-    }
+-  }
+\ No newline at end of file
++  }
++
++  .copy {
++    grid-area: copy;
++
++    text-align: center;
++  }
++}
+diff --git a/src/components/global-search-box/global-search-box.component.tsx b/src/components/global-search-box/global-search-box.component.tsx
+index 084a972..c8380a4 100644
+--- a/src/components/global-search-box/global-search-box.component.tsx
++++ b/src/components/global-search-box/global-search-box.component.tsx
+@@ -11,10 +11,7 @@ export default function GlobalSearchBoxComponent(): ReactElement {
+       <div className={styles.prefix}>
+         <MingcuteSearch3Line />
+       </div>
+-      <input
+-        type="text"
+-        placeholder="نام کتاب، موضوع، نویسنده، ناشر و ..."
+-      />
++      <input type="text" placeholder="نام کتاب، موضوع، نویسنده، ناشر و ..." />
+       <div className={styles.divider}></div>
+       <div className={styles.suffix}>
+         <button>
+diff --git a/src/components/header/header.module.css b/src/components/header/header.module.css
+index 90ab2f4..f02f9a4 100644
+--- a/src/components/header/header.module.css
++++ b/src/components/header/header.module.css
+@@ -39,4 +39,4 @@
+       color: var(--color-primary-opposite);
+     }
+   }
+-}
+\ No newline at end of file
++}
+-- 
+2.43.0.windows.1
+

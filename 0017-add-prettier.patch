@@ -1,0 +1,43 @@
+From cf679457f365ce12b3986981f496101ee88df2bb Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Sun, 22 Dec 2024 17:39:45 +0330
+Subject: [PATCH 17/28] add prettier
+
+---
+ src/app/layout.tsx | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 4ad74ae..7e982a0 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -1,11 +1,11 @@
+ import type { Metadata } from "next";
+-import { Vazirmatn } from 'next/font/google'
++import { Vazirmatn } from "next/font/google";
+ import "./globals.css";
+ 
+ const vazirmatn = Vazirmatn({
+-  subsets: ['latin','arabic'],
+-  display: 'swap',
+-})
++  subsets: ["latin", "arabic"],
++  display: "swap",
++});
+ 
+ export const metadata: Metadata = {
+   title: "کتاب های من",
+@@ -19,9 +19,7 @@ export default function RootLayout({
+ }>) {
+   return (
+     <html lang="fa" dir="rtl" className={vazirmatn.className}>
+-      <body>
+-        {children}
+-      </body>
++      <body>{children}</body>
+     </html>
+   );
+ }
+-- 
+2.43.0.windows.1
+

@@ -1,0 +1,439 @@
+From d9c359b44524bd387f3a370b25bc2e56d235ca14 Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Wed, 25 Dec 2024 11:39:54 +0330
+Subject: [PATCH 25/28] add footer
+
+---
+ src/app/globals.css                        | 24 ++++++--
+ src/app/layout.tsx                         |  5 ++
+ src/assets/logo/certificate.svg            | 11 ++++
+ src/assets/logo/enamad.svg                 | 17 ++++++
+ src/assets/logo/idk.svg                    | 22 +++++++
+ src/components/footer/footer.component.tsx | 67 ++++++++++++++++++++++
+ src/components/footer/footer.module.css    | 51 ++++++++++++++++
+ src/icons/MingcuteLinkedinFill.tsx         | 22 +++++++
+ src/icons/MingcuteLocationLine.tsx         | 22 +++++++
+ src/icons/MingcuteSearch3Line.tsx          | 22 +++++++
+ src/icons/MingcuteTelegramFill.tsx         | 22 +++++++
+ src/icons/MingcuteYoutubeFill.tsx          | 22 +++++++
+ 12 files changed, 302 insertions(+), 5 deletions(-)
+ create mode 100644 src/assets/logo/certificate.svg
+ create mode 100644 src/assets/logo/enamad.svg
+ create mode 100644 src/assets/logo/idk.svg
+ create mode 100644 src/components/footer/footer.component.tsx
+ create mode 100644 src/components/footer/footer.module.css
+ create mode 100644 src/icons/MingcuteLinkedinFill.tsx
+ create mode 100644 src/icons/MingcuteLocationLine.tsx
+ create mode 100644 src/icons/MingcuteSearch3Line.tsx
+ create mode 100644 src/icons/MingcuteTelegramFill.tsx
+ create mode 100644 src/icons/MingcuteYoutubeFill.tsx
+
+diff --git a/src/app/globals.css b/src/app/globals.css
+index 683d20a..74a774f 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -13,10 +13,10 @@
+   --color-default-background: var(--color-gray-10);
+   --color-default-foreground: var(--color-gray-98);
+ 
+-  --color-primary: hsl(335deg 71% 64%);
++  --color-primary: hsl(203, 71%, 64%);
+   --color-primary-fade: hsl(335deg 71% 94%);
+-  --color-primary-lighter: hsl(335deg 71% 68%);
+-  --color-primary-darker: hsl(335deg 71% 60%);
++  --color-primary-lighter: hsl(180, 71%, 68%);
++  --color-primary-darker: hsl(187, 71%, 60%);
+   --color-primary-opposite: var(--color-gray-10);
+ 
+   --border-radius: 0.875rem;
+@@ -66,9 +66,23 @@ a {
+ 
+ body {
+   background-color: var(--color-default-background);
+-  color:var(--color-default-foreground) 
+-  
++  color: var(--color-default-foreground);
++
++  display: grid;
++  grid-template-rows: auto 1fr auto;
++
++  min-block-size: 100vh;
++  min-block-size: 100dvh;
++
+   > * {
+     padding-inline: var(--full-width-padding-inline);
+   }
++
++  .tagline {
++    background-color: car(--color-gray-16);
++
++    padding-block: 1rem;
++
++    text-align: center;
++  }
+ }
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 51166cf..34b1247 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -2,6 +2,7 @@ import type { Metadata } from "next";
+ import { Vazirmatn } from "next/font/google";
+ 
+ import HeaderComponent from "@/components/header/header.component";
++import FooterComponent from "@/components/footer/footer.component";
+ 
+ import "./globals.css";
+ 
+@@ -25,6 +26,10 @@ export default function RootLayout({
+       <body>
+         <HeaderComponent />
+         <main>{children}</main>
++        <p className="tagline">
++          خرید کتاب های پرفروش،سامانه خرید اینترنتی کتاب
++        </p>
++        <FooterComponent />
+       </body>
+     </html>
+   );
+diff --git a/src/assets/logo/certificate.svg b/src/assets/logo/certificate.svg
+new file mode 100644
+index 0000000..0876d71
+--- /dev/null
++++ b/src/assets/logo/certificate.svg
+@@ -0,0 +1,11 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 21.65 21.44">
++<title>icon</title>
++<g>
++  <g>
++    <path
++      d="M21.65,10.66a7.66,7.66,0,0,1-.43.86,5,5,0,0,0-.92,3.62,1.37,1.37,0,0,1-.94,1.57,4.82,4.82,0,0,0-2.55,2.59,1.41,1.41,0,0,1-1.6.93,6.14,6.14,0,0,0-3.81,1.05,1.38,1.38,0,0,1-1.32,0,5.76,5.76,0,0,0-3.93-1,1.19,1.19,0,0,1-1.34-.8A6.06,6.06,0,0,0,2,16.58a1.48,1.48,0,0,1-.72-1.22,6.71,6.71,0,0,0-1.08-4,1.35,1.35,0,0,1,0-1.22,6.09,6.09,0,0,0,1.06-4A1.2,1.2,0,0,1,2,4.77,5.25,5.25,0,0,0,4.77,2a1.22,1.22,0,0,1,1.42-.82A5.78,5.78,0,0,0,10,.17a1.6,1.6,0,0,1,1.4,0,6.59,6.59,0,0,0,3.94,1,1.44,1.44,0,0,1,1.22.72,6.8,6.8,0,0,0,3,2.93,1.45,1.45,0,0,1,.68,1,6.18,6.18,0,0,0,1.16,4.31A3.2,3.2,0,0,1,21.65,10.66ZM16.4,12.45a6.49,6.49,0,0,0-1.54.19,11.72,11.72,0,0,0-1.75.92A38.65,38.65,0,0,1,9,15.9a2,2,0,0,1-3-2.05,25.58,25.58,0,0,1,.38-2.71c.09-.74.58-.75,1.08-.6.71.2,1.38.52,2.09.74a2.53,2.53,0,0,0,3.27-1.07l-5-1.4.32-1L4.73,10.91,6,10.63a44.51,44.51,0,0,0-.58,4.62c-.06,2.16,1.08,3,3.14,2.32a17.57,17.57,0,0,0,3.65-2.11C13.56,14.55,14.87,13.54,16.4,12.45ZM8.12,18.54c1.38.93,2.47,1,3.49.28.77-.55,1.48-1.19,2.22-1.78,1.25-1,2.17-2.46,3.91-2.78A1.13,1.13,0,0,0,16,13.89c-.83.54-1.64,1.1-2.42,1.71C11.93,16.87,10.45,18.38,8.12,18.54Zm2.06-17c-1.52,2-1.52,2.07-.1,3.58C11.67,3.38,11.45,2.91,10.18,1.57ZM9.86,6.28c.77.07,1.93-.14,2.67.32s.94,1.57,1.32,2.28a2.71,2.71,0,0,0-.31-3.09C12.78,5.2,10.72,5.57,9.86,6.28Z"
++      fill="#fafafa"
++    ></path>
++  </g>
++</g>
++</svg>
+diff --git a/src/assets/logo/enamad.svg b/src/assets/logo/enamad.svg
+new file mode 100644
+index 0000000..732c7d3
+--- /dev/null
++++ b/src/assets/logo/enamad.svg
+@@ -0,0 +1,17 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 29.3 23.38">
++  <title>icon</title>
++  <g>
++    <g>
++      <g>
++        <path
++          d="M0,22.39a52,52,0,0,1,9.54-5.67c5.21-2.31,10.17-6.09,10.17-11.09S17.65,0,16.43,0C14.75,0,9.87,2,8.32,10.46s1.89,12.72,4.79,12.89,4.07-.49,5.88-4.27c1.71-1.28,3.16-1.64,3.55-3.48a.85.85,0,0,0-.76-1L21,14.5a2.46,2.46,0,0,1,1.68-1.18c1.13-.17,1.89-2.14,1.89-2.14s-4,.79-6.39,6.51-7,2.94-7.39.63A19.88,19.88,0,0,1,12.69,4.58c2.63-4.58,8.07-1,2.63,5.46C10,15.34.46,17.31,0,22.39Z"
++          fill="#fafafa"
++        ></path>
++        <path
++          d="M25.58,11.78l1,1.67a.65.65,0,0,0,1,.15l1.51-1.33a.67.67,0,0,0,.12-.83l-1-1.64a.65.65,0,0,0-1-.15L25.7,11A.66.66,0,0,0,25.58,11.78Z"
++          fill="#fafafa"
++        ></path>
++      </g>
++    </g>
++  </g>
++</svg>
+diff --git a/src/assets/logo/idk.svg b/src/assets/logo/idk.svg
+new file mode 100644
+index 0000000..f74858d
+--- /dev/null
++++ b/src/assets/logo/idk.svg
+@@ -0,0 +1,22 @@
++<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24.96 23.63">
++<title>icon</title>
++<g>
++  <g>
++    <g>
++      <path
++        d="M2.38,4.41H8.09L4.51,19.2s-.73,2.68.72,3.54C1.35,20.92-.59,18.28.16,14.35S2.38,4.41,2.38,4.41Z"
++        fill="#fafafa"
++      ></path>
++      <path
++        d="M19.64,4.41H25L22.67,14.92s-.9,5-8.89,7.82a5,5,0,0,0,2.38-3.29C16.89,16.9,19.64,4.41,19.64,4.41Z"
++        fill="#fafafa"
++      ></path>
++      <path
++        d="M15,0S6.55,5.39,6.73,13.88a16.22,16.22,0,0,0,2.9,9.75S2,10.78,16.82,4.7C16.27,2.9,15,0,15,0Z"
++        fill="#fafafa"
++      ></path>
++      <path d="M13.78,7,17,5.32s3.77,9.91-6.9,18.22C10.06,23.54,19.37,16.21,13.78,7Z" fill="#fafafa"></path>
++    </g>
++  </g>
++</g>
++</svg>
+diff --git a/src/components/footer/footer.component.tsx b/src/components/footer/footer.component.tsx
+new file mode 100644
+index 0000000..3583ceb
+--- /dev/null
++++ b/src/components/footer/footer.component.tsx
+@@ -0,0 +1,67 @@
++"use client";
++
++import { ReactElement } from "react";
++
++import Link from "next/link";
++import Image from "next/image";
++
++import enamad from "@/assets/logo/enamad.svg";
++import certificate from "@/assets/logo/certificate.svg";
++import flow from "@/assets/logo/idk.svg";
++
++import MingcuteYoutubeFill from "@/icons/MingcuteYoutubeFill";
++import MingcuteLinkedinFill from "@/icons/MingcuteLinkedinFill";
++import MingcuteTelegramFill from "@/icons/MingcuteTelegramFill";
++
++import styles from "./footer.module.css";
++
++export default function FooterComponent(): ReactElement {
++  return (
++    <footer className={styles.footer}>
++      <div className={styles.writings}>
++        <div className={styles.logo}>خرید کتاب</div>
++        <p className={styles.description}>خرید پرفروش ترین کتاب ها </p>
++      </div>
++      <div className={styles.visuals}>
++        <ul className={styles.certificates}>
++          <li>
++            <Link href="#">
++              <Image src={enamad} alt="logo" />
++            </Link>
++          </li>
++          <li>
++            <Link href="#">
++              <Image src={certificate} alt="certificate" />
++            </Link>
++          </li>
++          <li>
++            <Link href="#">
++              <Image src={flow} alt="enamad" />
++            </Link>
++          </li>
++        </ul>
++        <ul className={styles.socials}>
++          <li>
++            <Link href="youtube">
++              <MingcuteYoutubeFill />
++            </Link>
++          </li>
++          <li>
++            <Link href="linkedin">
++              <MingcuteLinkedinFill />
++            </Link>
++          </li>
++          <li>
++            <Link href="telegram">
++              <MingcuteTelegramFill />
++            </Link>
++          </li>
++        </ul>
++      </div>
++      <p className={styles.copy}>
++        تمامی حقوق مادی و معنوی این وبسایت، خدمات و محتوای آن متعلق به من
++        میباشد!
++      </p>
++    </footer>
++  );
++}
+diff --git a/src/components/footer/footer.module.css b/src/components/footer/footer.module.css
+new file mode 100644
+index 0000000..34c4430
+--- /dev/null
++++ b/src/components/footer/footer.module.css
+@@ -0,0 +1,51 @@
++.footer {
++    background-color: var(--color-gray-12);
++  
++    display: grid;
++    grid-template-areas: "writings visuals" "copy copy";
++    column-gap: 1rem;
++    row-gap: 2rem;
++  
++    padding-block: 1rem;
++  
++    .writings {
++      grid-area: writings;
++  
++      .logo {
++        margin-block-end: 0.25rem;
++  
++        font-size: 2rem;
++        font-weight: 700;
++      }
++    }
++  
++    .visuals {
++      grid-area: visuals;
++  
++      display: grid;
++      justify-items: center;
++      gap: 1rem;
++  
++      .certificates {
++        display: flex;
++        gap: 2rem;
++      }
++  
++      .socials {
++        display: flex;
++        gap: 1rem;
++  
++        > li {
++          a {
++            font-size: 1.5rem;
++          }
++        }
++      }
++    }
++  
++    .copy {
++      grid-area: copy;
++  
++      text-align: center;
++    }
++  }
+\ No newline at end of file
+diff --git a/src/icons/MingcuteLinkedinFill.tsx b/src/icons/MingcuteLinkedinFill.tsx
+new file mode 100644
+index 0000000..8d883a1
+--- /dev/null
++++ b/src/icons/MingcuteLinkedinFill.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteLinkedinFill(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="1em"
++      height="1em"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g fill="none" fillRule="evenodd">
++        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
++        <path
++          fill="currentColor"
++          d="M18 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zM8 10a1 1 0 0 0-1 1v5a1 1 0 1 0 2 0v-5a1 1 0 0 0-1-1m3-1a1 1 0 0 0-1 1v6a1 1 0 1 0 2 0v-3.66c.305-.344.82-.748 1.393-.993c.333-.142.834-.2 1.182-.09a.55.55 0 0 1 .293.188c.052.07.132.226.132.555v4a1 1 0 0 0 2 0v-4c0-.67-.17-1.266-.524-1.744a2.54 2.54 0 0 0-1.301-.907c-.902-.283-1.901-.126-2.568.16a6 6 0 0 0-.623.312A1 1 0 0 0 11 9M8 7a1 1 0 1 0 0 2a1 1 0 0 0 0-2"
++        ></path>
++      </g>
++    </svg>
++  );
++}
++export default MingcuteLinkedinFill;
+diff --git a/src/icons/MingcuteLocationLine.tsx b/src/icons/MingcuteLocationLine.tsx
+new file mode 100644
+index 0000000..8a03811
+--- /dev/null
++++ b/src/icons/MingcuteLocationLine.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteLocationLine(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="1em"
++      height="1em"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g fill="none" fillRule="evenodd">
++        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
++        <path
++          fill="currentColor"
++          d="M12 2a9 9 0 0 1 9 9c0 3.074-1.676 5.59-3.442 7.395a20.4 20.4 0 0 1-2.876 2.416l-.426.29l-.2.133l-.377.24l-.336.205l-.416.242a1.87 1.87 0 0 1-1.854 0l-.416-.242l-.52-.32l-.192-.125l-.41-.273a20.6 20.6 0 0 1-3.093-2.566C4.676 16.589 3 14.074 3 11a9 9 0 0 1 9-9m0 2a7 7 0 0 0-7 7c0 2.322 1.272 4.36 2.871 5.996a18 18 0 0 0 2.222 1.91l.458.326q.222.155.427.288l.39.25l.343.209l.289.169l.455-.269l.367-.23q.293-.186.627-.417l.458-.326a18 18 0 0 0 2.222-1.91C17.728 15.361 19 13.322 19 11a7 7 0 0 0-7-7m0 3a4 4 0 1 1 0 8a4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4a2 2 0 0 0 0-4"
++        ></path>
++      </g>
++    </svg>
++  );
++}
++export default MingcuteLocationLine;
+diff --git a/src/icons/MingcuteSearch3Line.tsx b/src/icons/MingcuteSearch3Line.tsx
+new file mode 100644
+index 0000000..9ce32f8
+--- /dev/null
++++ b/src/icons/MingcuteSearch3Line.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteSearch3Line(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="1em"
++      height="1em"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g fill="none" fillRule="evenodd">
++        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
++        <path
++          fill="currentColor"
++          d="M10.5 4a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13M2 10.5a8.5 8.5 0 1 1 15.176 5.262l3.652 3.652a1 1 0 0 1-1.414 1.414l-3.652-3.652A8.5 8.5 0 0 1 2 10.5M9.5 7a1 1 0 0 1 1-1a4.5 4.5 0 0 1 4.5 4.5a1 1 0 1 1-2 0A2.5 2.5 0 0 0 10.5 8a1 1 0 0 1-1-1"
++        ></path>
++      </g>
++    </svg>
++  );
++}
++export default MingcuteSearch3Line;
+diff --git a/src/icons/MingcuteTelegramFill.tsx b/src/icons/MingcuteTelegramFill.tsx
+new file mode 100644
+index 0000000..8c3ab69
+--- /dev/null
++++ b/src/icons/MingcuteTelegramFill.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteTelegramFill(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="1em"
++      height="1em"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g fill="none" fillRule="evenodd">
++        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
++        <path
++          fill="currentColor"
++          d="M19.777 4.43a1.5 1.5 0 0 1 2.062 1.626l-2.268 13.757c-.22 1.327-1.676 2.088-2.893 1.427c-1.018-.553-2.53-1.405-3.89-2.294c-.68-.445-2.763-1.87-2.507-2.884c.22-.867 3.72-4.125 5.72-6.062c.785-.761.427-1.2-.5-.5c-2.302 1.738-5.998 4.381-7.22 5.125c-1.078.656-1.64.768-2.312.656c-1.226-.204-2.363-.52-3.291-.905c-1.254-.52-1.193-2.244-.001-2.746z"
++        ></path>
++      </g>
++    </svg>
++  );
++}
++export default MingcuteTelegramFill;
+diff --git a/src/icons/MingcuteYoutubeFill.tsx b/src/icons/MingcuteYoutubeFill.tsx
+new file mode 100644
+index 0000000..b3c45e0
+--- /dev/null
++++ b/src/icons/MingcuteYoutubeFill.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteYoutubeFill(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="1em"
++      height="1em"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g fill="none" fillRule="evenodd">
++        <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
++        <path
++          fill="currentColor"
++          d="M12 4c.855 0 1.732.022 2.582.058l1.004.048l.961.057l.9.061l.822.064a3.8 3.8 0 0 1 3.494 3.423l.04.425l.075.91c.07.943.122 1.971.122 2.954s-.052 2.011-.122 2.954l-.075.91l-.04.425a3.8 3.8 0 0 1-3.495 3.423l-.82.063l-.9.062l-.962.057l-1.004.048A62 62 0 0 1 12 20a62 62 0 0 1-2.582-.058l-1.004-.048l-.961-.057l-.9-.062l-.822-.063a3.8 3.8 0 0 1-3.494-3.423l-.04-.425l-.075-.91A41 41 0 0 1 2 12c0-.983.052-2.011.122-2.954l.075-.91l.04-.425A3.8 3.8 0 0 1 5.73 4.288l.821-.064l.9-.061l.962-.057l1.004-.048A62 62 0 0 1 12 4m-2 5.575v4.85c0 .462.5.75.9.52l4.2-2.425a.6.6 0 0 0 0-1.04l-4.2-2.424a.6.6 0 0 0-.9.52Z"
++        ></path>
++      </g>
++    </svg>
++  );
++}
++export default MingcuteYoutubeFill;
+-- 
+2.43.0.windows.1
+

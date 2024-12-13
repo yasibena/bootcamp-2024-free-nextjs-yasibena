@@ -1,0 +1,25 @@
+From 7eb3f21586ede6e1565df292318fc515c7d88a6c Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Sat, 21 Dec 2024 20:59:13 +0330
+Subject: [PATCH 13/28] add prettier to package.json
+
+---
+ package.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/package.json b/package.json
+index b9fca01..6651d55 100644
+--- a/package.json
++++ b/package.json
+@@ -7,7 +7,7 @@
+     "build": "next build",
+     "start": "next start",
+     "lint": "next lint",
+-    "prettier:check": "prettier --check .",
++    "prettier:check": "prettier --check ."
+     
+   },
+   "dependencies": {
+-- 
+2.43.0.windows.1
+

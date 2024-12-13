@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/webstorm,visualstudiocode,nextjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=webstorm,visualstudiocode,nextjs
 
@@ -173,3 +174,7 @@ fabric.properties
 
 .idea/
 .vscode/
+=======
+.idea/
+.vscode/
+>>>>>>> 2dc4856 (add gitignore)

@@ -1,0 +1,316 @@
+From 743b3ebf84da57209107eb03db288577384c37c1 Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Sun, 29 Dec 2024 22:43:44 +0330
+Subject: [PATCH 28/28] add light theme
+
+---
+ package-lock.json                          | 120 +++++++++++++++++++++
+ src/app/globals.css                        |   6 ++
+ src/app/page.tsx                           |   2 +-
+ src/components/header/header.component.tsx |  34 +++++-
+ src/components/header/header.module.css    |   4 +
+ src/icons/MingcuteDarkMode.tsx             |  22 ++++
+ src/icons/MingcuteLightMode.tsx            |  22 ++++
+ 7 files changed, 208 insertions(+), 2 deletions(-)
+ create mode 100644 src/icons/MingcuteDarkMode.tsx
+ create mode 100644 src/icons/MingcuteLightMode.tsx
+
+diff --git a/package-lock.json b/package-lock.json
+index 312a4d9..c1a1c85 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -4296,6 +4296,126 @@
+       "funding": {
+         "url": "https://github.com/sponsors/sindresorhus"
+       }
++    },
++    "node_modules/@next/swc-darwin-arm64": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.20.tgz",
++      "integrity": "sha512-WDfq7bmROa5cIlk6ZNonNdVhKmbCv38XteVFYsxea1vDJt3SnYGgxLGMTXQNfs5OkFvAhmfKKrwe7Y0Hs+rWOg==",
++      "cpu": [
++        "arm64"
++      ],
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-darwin-x64": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-14.2.20.tgz",
++      "integrity": "sha512-XIQlC+NAmJPfa2hruLvr1H1QJJeqOTDV+v7tl/jIdoFvqhoihvSNykLU/G6NMgoeo+e/H7p/VeWSOvMUHKtTIg==",
++      "cpu": [
++        "x64"
++      ],
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-linux-arm64-gnu": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-linux-arm64-gnu/-/swc-linux-arm64-gnu-14.2.20.tgz",
++      "integrity": "sha512-pnzBrHTPXIMm5QX3QC8XeMkpVuoAYOmyfsO4VlPn+0NrHraNuWjdhe+3xLq01xR++iCvX+uoeZmJDKcOxI201Q==",
++      "cpu": [
++        "arm64"
++      ],
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-linux-arm64-musl": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-linux-arm64-musl/-/swc-linux-arm64-musl-14.2.20.tgz",
++      "integrity": "sha512-WhJJAFpi6yqmUx1momewSdcm/iRXFQS0HU2qlUGlGE/+98eu7JWLD5AAaP/tkK1mudS/rH2f9E3WCEF2iYDydQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-linux-x64-gnu": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.2.20.tgz",
++      "integrity": "sha512-ao5HCbw9+iG1Kxm8XsGa3X174Ahn17mSYBQlY6VGsdsYDAbz/ZP13wSLfvlYoIDn1Ger6uYA+yt/3Y9KTIupRg==",
++      "cpu": [
++        "x64"
++      ],
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-linux-x64-musl": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-14.2.20.tgz",
++      "integrity": "sha512-CXm/kpnltKTT7945np6Td3w7shj/92TMRPyI/VvveFe8+YE+/YOJ5hyAWK5rpx711XO1jBCgXl211TWaxOtkaA==",
++      "cpu": [
++        "x64"
++      ],
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-win32-arm64-msvc": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-win32-arm64-msvc/-/swc-win32-arm64-msvc-14.2.20.tgz",
++      "integrity": "sha512-upJn2HGQgKNDbXVfIgmqT2BN8f3z/mX8ddoyi1I565FHbfowVK5pnMEwauvLvaJf4iijvuKq3kw/b6E9oIVRWA==",
++      "cpu": [
++        "arm64"
++      ],
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
++    },
++    "node_modules/@next/swc-win32-ia32-msvc": {
++      "version": "14.2.20",
++      "resolved": "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-14.2.20.tgz",
++      "integrity": "sha512-igQW/JWciTGJwj3G1ipalD2V20Xfx3ywQy17IV0ciOUBbFhNfyU1DILWsTi32c8KmqgIDviUEulW/yPb2FF90w==",
++      "cpu": [
++        "ia32"
++      ],
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">= 10"
++      }
+     }
+   }
+ }
+diff --git a/src/app/globals.css b/src/app/globals.css
+index 74a774f..82f6d32 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -27,6 +27,7 @@
+   --animation-duration-fast: 0.1s;
+   --animation-duration-normal: 0.5s;
+   --animation-duration-slow: 1s;
++
+ }
+ 
+ *,
+@@ -64,6 +65,11 @@ a {
+   text-decoration: none;
+ }
+ 
++.light-mode {
++
++  color-scheme: light;
++}
++
+ body {
+   background-color: var(--color-default-background);
+   color: var(--color-default-foreground);
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index fce2313..ad08d8d 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -6,7 +6,7 @@ import GlobalSearchBoxComponent from "@/components/global-search-box/global-sear
+ 
+ import styles from "./page.module.css";
+ 
+-export default async function Home(): ReactElement {
++export default function Home(): ReactElement {
+   return (
+     <div className={styles.home}>
+       <h1>
+diff --git a/src/components/header/header.component.tsx b/src/components/header/header.component.tsx
+index 7c8ab2d..ca8ba30 100644
+--- a/src/components/header/header.component.tsx
++++ b/src/components/header/header.component.tsx
+@@ -1,19 +1,51 @@
+ "use client";
+ 
+-import { ReactElement } from "react";
++import { ReactElement, useEffect, useState } from "react";
+ 
+ import Link from "next/link";
+ import { usePathname } from "next/navigation";
+ 
+ import styles from "./header.module.css";
+ import clsx from "clsx";
++import MingcuteDarkModeFill from "@/icons/MingcuteDarkMode";
++import MingcuteLightModeFill from "@/icons/MingcuteLightMode";
+ 
+ export default function HeaderComponent(): ReactElement {
+   const pathname = usePathname();
++  const [lightMode, setLightMode] = useState(() => {
++    return localStorage.getItem("lightMode") === "true";
++  });
++
++  const toggleMode = () => {
++    setLightMode((prevMode) => !prevMode);
++  };
++
++  useEffect(() => {
++    const root = document.documentElement;
++
++    if (lightMode) {
++      root.style.setProperty("--color-default-background", "hsl(0deg 0% 98%)");
++      root.style.setProperty("--color-default-foreground", "hsl(0deg 0% 10%)");
++      root.style.setProperty("--color-gray-12", "#62b2e4");
++      root.style.setProperty("--color-gray-20", "#62b2e4");
++      root.style.setProperty("--color-gray-16", "#62b2e4"); 
++      root.style.setProperty("color-scheme", "light");
++    } else {
++      root.style.setProperty("--color-default-background", "hsl(0deg 0% 10%)");
++      root.style.setProperty("--color-default-foreground", "hsl(0deg 0% 98%)");
++      root.style.setProperty("color-scheme", "dark");
++    }
++    // Save the user's preference in localStorage
++    localStorage.setItem("lightMode", lightMode.toString());
++  }, [lightMode]);
++
+   return (
+     <header className={styles.header}>
+       <nav>
+         <ul>
++          <div className={clsx(styles.toggleMode)} onClick={toggleMode}>
++            {lightMode ? <MingcuteDarkModeFill /> : <MingcuteLightModeFill />}
++          </div>
+           <li>
+             <Link href="/" className={clsx(pathname === "/" && styles.active)}>
+               خانه
+diff --git a/src/components/header/header.module.css b/src/components/header/header.module.css
+index f02f9a4..5381657 100644
+--- a/src/components/header/header.module.css
++++ b/src/components/header/header.module.css
+@@ -10,6 +10,10 @@
+       display: flex;
+       gap: 2rem;
+ 
++      > div {
++        cursor: pointer;
++      }
++
+       > li {
+         a {
+           &.active {
+diff --git a/src/icons/MingcuteDarkMode.tsx b/src/icons/MingcuteDarkMode.tsx
+new file mode 100644
+index 0000000..31ae259
+--- /dev/null
++++ b/src/icons/MingcuteDarkMode.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteDarkModeFill(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="24"
++      height="24"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g id="moon_line" fill="none" fill-rule="evenodd">
++        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z" />
++        <path
++          fill="hsl(0deg 0% 30%)"
++          d="M13.574 3.137a1.01 1.01 0 0 0-1.097 1.409 6 6 0 0 1-7.931 7.931 1.01 1.01 0 0 0-1.409 1.097A9 9 0 0 0 21 12c0-4.434-3.206-8.118-7.426-8.863m1.307 2.481A7.002 7.002 0 0 1 12 19a7.002 7.002 0 0 1-6.382-4.12 8 8 0 0 0 9.263-9.263Z"
++        />
++      </g>
++    </svg>
++  );
++}
++export default MingcuteDarkModeFill;
+diff --git a/src/icons/MingcuteLightMode.tsx b/src/icons/MingcuteLightMode.tsx
+new file mode 100644
+index 0000000..b8bd413
+--- /dev/null
++++ b/src/icons/MingcuteLightMode.tsx
+@@ -0,0 +1,22 @@
++import React, { SVGProps } from "react";
++
++export function MingcuteLightModeFill(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      width="24"
++      height="24"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <g id="brightness_line" fill="none">
++        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z" />
++        <path
++          fill="hsl(0deg 0% 30%)"
++          d="M12 19a1 1 0 0 1 .993.883L13 20v1a1 1 0 0 1-1.993.117L11 21v-1a1 1 0 0 1 1-1m4.95-2.05a1 1 0 0 1 1.32-.083l.094.083.707.707a1 1 0 0 1-1.32 1.497l-.094-.083-.707-.707a1 1 0 0 1 0-1.414m-9.9 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12m0 2a4 4 0 1 0 0 8zm-8 3a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2zm17 0a1 1 0 0 1 .117 1.993L21 13h-1a1 1 0 0 1-.117-1.993L20 11zM6.343 4.929l.707.707A1 1 0 0 1 5.636 7.05l-.707-.707A1 1 0 1 1 6.343 4.93Zm11.314 0a1 1 0 0 1 1.497 1.32l-.083.094-.707.707a1 1 0 0 1-1.497-1.32l.083-.094zM12 2a1 1 0 0 1 .993.883L13 3v1a1 1 0 0 1-1.993.117L11 4V3a1 1 0 0 1 1-1"
++        />
++      </g>
++    </svg>
++  );
++}
++export default MingcuteLightModeFill;
+-- 
+2.43.0.windows.1
+

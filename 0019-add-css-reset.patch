@@ -1,0 +1,49 @@
+From 18fbf6ed7cff7641702444e403e3734a79c31e1e Mon Sep 17 00:00:00 2001
+From: yasibena <118657398+yasibena@users.noreply.github.com>
+Date: Sun, 22 Dec 2024 20:36:02 +0330
+Subject: [PATCH 19/28] add css reset
+
+---
+ src/app/globals.css | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/src/app/globals.css b/src/app/globals.css
+index e69de29..b70a729 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -0,0 +1,32 @@
++*,
++*::before,
++*::after {
++  box-sizing: border-box;
++
++  margin: 0;
++  padding: 0;
++}
++
++input,
++label,
++select,
++textarea,
++button,
++fieldset,
++legend,
++datalist,
++output,
++option,
++optgroup {
++  font: inherit;
++}
++
++ul {
++  list-style: none;
++}
++
++a {
++  color: inherit;
++
++  text-decoration: none;
++}
+-- 
+2.43.0.windows.1
+
