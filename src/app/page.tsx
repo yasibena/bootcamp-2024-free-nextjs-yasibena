@@ -1,3 +1,26 @@
-export default async function Home() {
-  return <h1>سلام رفیق!</h1>
+import { ReactElement } from "react";
+
+// import Logo from "@/assets/logo";
+
+import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
+
+import styles from "./page.module.css";
+
+export default async function Home(): ReactElement {
+  return (
+    <div className={styles.home}>
+      <h1>
+        {/* <Logo /> */}
+        کتاب من
+      </h1>
+      <GlobalSearchBoxComponent />
+      <div className={styles.history}>
+        <div className={styles.title}>آخرین جستجوهای شما</div>
+        <ul>
+          <li>عاشقانه</li>
+          <li>فلسفه و عرفان</li>
+        </ul>
+      </div>
+    </div>
+  );
 }
