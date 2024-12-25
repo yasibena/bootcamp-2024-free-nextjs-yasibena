@@ -11,10 +11,7 @@ export default function GlobalSearchBoxComponent(): ReactElement {
       <div className={styles.prefix}>
         <MingcuteSearch3Line />
       </div>
-      <input
-        type="text"
-        placeholder="نام کتاب، موضوع، نویسنده، ناشر و ..."
-      />
+      <input type="text" placeholder="نام کتاب، موضوع، نویسنده، ناشر و ..." />
       <div className={styles.divider}></div>
       <div className={styles.suffix}>
         <button>
