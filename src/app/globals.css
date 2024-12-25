@@ -13,10 +13,10 @@
   --color-default-background: var(--color-gray-10);
   --color-default-foreground: var(--color-gray-98);
 
-  --color-primary: hsl(335deg 71% 64%);
+  --color-primary: hsl(203, 71%, 64%);
   --color-primary-fade: hsl(335deg 71% 94%);
-  --color-primary-lighter: hsl(335deg 71% 68%);
-  --color-primary-darker: hsl(335deg 71% 60%);
+  --color-primary-lighter: hsl(180, 71%, 68%);
+  --color-primary-darker: hsl(187, 71%, 60%);
   --color-primary-opposite: var(--color-gray-10);
 
   --border-radius: 0.875rem;
@@ -66,9 +66,23 @@ a {
 
 body {
   background-color: var(--color-default-background);
-  color:var(--color-default-foreground) 
-  
+  color: var(--color-default-foreground);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+
   > * {
     padding-inline: var(--full-width-padding-inline);
+  }
+
+  .tagline {
+    background-color: car(--color-gray-16);
+
+    padding-block: 1rem;
+
+    text-align: center;
   }
 }
