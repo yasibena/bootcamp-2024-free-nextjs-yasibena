@@ -6,7 +6,7 @@ import GlobalSearchBoxComponent from "@/components/global-search-box/global-sear
 
 import styles from "./page.module.css";
 
-export default async function Home(): ReactElement {
+export default function Home(): ReactElement {
   return (
     <div className={styles.home}>
       <h1>
