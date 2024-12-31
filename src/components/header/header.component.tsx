@@ -28,7 +28,7 @@ export default function HeaderComponent(): ReactElement {
       root.style.setProperty("--color-default-foreground", "hsl(0deg 0% 10%)");
       root.style.setProperty("--color-gray-12", "#62b2e4");
       root.style.setProperty("--color-gray-20", "#62b2e4");
-      root.style.setProperty("--color-gray-16", "#62b2e4"); 
+      root.style.setProperty("--color-gray-16", "#62b2e4");
       root.style.setProperty("color-scheme", "light");
     } else {
       root.style.setProperty("--color-default-background", "hsl(0deg 0% 10%)");
