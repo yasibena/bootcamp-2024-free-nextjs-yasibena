@@ -34,6 +34,7 @@ export default function HeaderComponent(): ReactElement {
       root.style.setProperty("--color-default-background", "hsl(0deg 0% 10%)");
       root.style.setProperty("--color-default-foreground", "hsl(0deg 0% 98%)");
       root.style.setProperty("color-scheme", "dark");
+      root.style.setProperty("--color-gray-12", "hsl(0deg 0% 12%)");
     }
     // Save the user's preference in localStorage
     localStorage.setItem("lightMode", lightMode.toString());
