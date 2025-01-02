@@ -1,14 +1,12 @@
 "use client";
 
-import { ReactElement } from "react";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import styles from "./header.module.css";
 import clsx from "clsx";
 
-export default function HeaderComponent(): ReactElement {
+export default function HeaderComponent() {
   const pathname = usePathname();
   return (
     <header className={styles.header}>
