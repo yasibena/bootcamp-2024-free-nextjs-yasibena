@@ -1,12 +1,8 @@
-import { ReactElement } from "react";
-
-// import Logo from "@/assets/logo";
-
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
 import styles from "./page.module.css";
 
-export default async function Home(): ReactElement {
+export default async function Home() {
   return (
     <div className={styles.home}>
       <h1>
