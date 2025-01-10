@@ -5,6 +5,7 @@ import FilterComponent from "./components/filter/filter.component";
 import FiltersProvider from "./providers/filters/filters.provider";
 
 import styles from "./page.module.css";
+import ListComponent from "./components/list/list.component";
 
 const items = Array(100)
   .fill(null)
@@ -31,11 +32,7 @@ export default function page() {
             ]}
           />
         </div>
-        <div className={styles.results}>
-          {items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </div>
+        <ListComponent />
       </div>
     </FiltersProvider>
   );
