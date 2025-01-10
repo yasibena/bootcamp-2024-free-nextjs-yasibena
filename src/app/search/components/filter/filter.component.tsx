@@ -7,7 +7,7 @@ import FilterButtonComponent from "@/components/filter-button/filter-button-comp
 
 import { FilterContext } from "../../providers/filters/filters.provider";
 
-import { FiltersType } from "../../types/filters.type";
+import { FiltersType } from "../../../../types/filters.type";
 
 import styles from "./filter.module.css";
 

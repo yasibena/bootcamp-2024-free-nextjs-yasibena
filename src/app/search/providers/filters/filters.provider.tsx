@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, PropsWithChildren, useCallback, useState } from "react";
-import { FiltersType } from "../../types/filters.type";
+import { FiltersType } from "../../../../types/filters.type";
 
 type ContextValue = {
   filters: FiltersType;
@@ -13,8 +13,16 @@ type ContextValue = {
   clearAll: () => void;
 };
 
+const defaultFilters: FiltersType = {
+  even: true,
+  odd: true,
+  three: true,
+  five: true,
+  seven: true,
+};
+
 export const FilterContext = createContext<ContextValue>({
-  filters: {},
+  filters: { ...defaultFilters },
   changeFilter: () => {},
   removeFilter: () => {},
   clearAll: () => {},
@@ -23,7 +31,7 @@ export const FilterContext = createContext<ContextValue>({
 type Props = PropsWithChildren;
 
 export default function FiltersProvider({ children }: Props) {
-  const [filters, setFilters] = useState<FiltersType>({});
+  const [filters, setFilters] = useState<FiltersType>({ ...defaultFilters });
 
   const changeFilter = useCallback(
     <TKey extends keyof FiltersType>(
@@ -47,7 +55,7 @@ export default function FiltersProvider({ children }: Props) {
   );
 
   const clearAll = useCallback((): void => {
-    setFilters({});
+    setFilters({ ...defaultFilters });
   }, []);
 
   return (
