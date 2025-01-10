@@ -21,13 +21,15 @@ export default function page() {
             { value: "odd", label: "فرد" },
           ]}
         />
-        <CardComponent>
-          <div className={styles.title}>زوج یا فرد</div>
-          <div className={styles.buttons}>
-            <FilterButtonComponent>زوج</FilterButtonComponent>
-            <FilterButtonComponent>فرد</FilterButtonComponent>
-          </div>
-        </CardComponent>
+        <FilterComponent
+          title="بخش پذیری"
+          options={[
+            { value: "two", label: "بخش پدیری بر 2" },
+            { value: "three", label: "بخش پدیری بر 3" },
+            { value: "five", label: "بخش پدیری بر 5" },
+            { value: "seven", label: "بخش پدیری بر 7" },
+          ]}
+        />
       </div>
       <div className={styles.results}>
         {items.map((item) => (
