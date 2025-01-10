@@ -2,7 +2,7 @@ import React from "react";
 
 import FilterComponent from "./components/filter/filter.component";
 
-import FiltersProvider from "./providers/filters/filters.components";
+import FiltersProvider from "./providers/filters/filters.provider";
 
 import styles from "./page.module.css";
 
