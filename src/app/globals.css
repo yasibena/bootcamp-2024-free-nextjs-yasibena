@@ -99,6 +99,7 @@ body {
   --color-gray-12: #62b2e4;
   --color-gray-20: #62b2e4;
   --color-gray-16: #62b2e4;
+  --color-primary: hsl(0deg 0% 98%);
   color-scheme: light;
 }
 
