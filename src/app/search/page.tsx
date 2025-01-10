@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./page.module.css";
 
 import CardComponent from "@/components/card/card.component";
+import FilterButtonComponent from "@/components/filter-button/filter-button-component";
 
 const items = Array(100)
   .fill(null)
@@ -14,15 +15,15 @@ export default function page() {
       <div className={styles.filters}>
         <CardComponent>
           <div className={styles.title}>زوج یا فرد</div>
-          <button>زوج</button>
-          <button>فرد</button>
+          <div className={styles.buttons}>
+            <FilterButtonComponent>زوج</FilterButtonComponent>
+            <FilterButtonComponent>فرد</FilterButtonComponent>
+          </div>
         </CardComponent>
       </div>
       <div className={styles.results}>
         {items.map((item) => (
-          <li key={item} className={item % 2 === 0 ? styles.active : ""}>
-            {item}
-          </li>
+          <li key={item}>{item}</li>
         ))}
       </div>
     </div>
