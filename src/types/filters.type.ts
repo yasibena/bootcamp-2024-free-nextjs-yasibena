@@ -1,7 +1,7 @@
-export type FiltersType = {
-    even: boolean,
-    odd: boolean,
-    three: boolean,
-    five: boolean,
-    seven:boolean
+export type FilterType={
+    query?: string,
+    category?: string,
+    genre?: string,
+    foramt?: string,
+    price?:number
 }

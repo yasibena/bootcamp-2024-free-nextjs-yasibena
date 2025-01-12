@@ -96,10 +96,10 @@ body {
 .light-mode {
   --color-default-background: hsl(0deg 0% 98%);
   --color-default-foreground: hsl(0deg 0% 10%);
-  --color-gray-12: #62b2e4;
-  --color-gray-20: #62b2e4;
-  --color-gray-16: #62b2e4;
-  --color-primary: hsl(0deg 0% 98%);
+  --color-gray-12: #4cabe6;
+  --color-gray-20: #4cabe6;
+  --color-gray-16: #c3e0f4;
+  --color-primary: #62b2e4;
   color-scheme: light;
 }
 
