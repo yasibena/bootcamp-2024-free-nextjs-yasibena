@@ -6,9 +6,9 @@ import styles from "./list.module.css";
 import ItemComponent from "@/app/search/components/item/item.component";
 import { ItemsContext } from "../../providers/filters/items.provider";
 
-const items = Array(100)
-  .fill(null)
-  .map((_, i) => i + 1);
+// const items = Array(100)
+//   .fill(null)
+//   .map((_, i) => i + 1);
 
 export default function ListComponent() {
   const { filteredItems } = useContext(ItemsContext);

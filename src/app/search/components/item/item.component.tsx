@@ -1,10 +1,6 @@
 "use client";
 
-import React, { useContext, useMemo } from "react";
-
-import clsx from "clsx";
-
-import { FilterContext } from "@/app/search/providers/filters/filters.provider";
+import React from "react";
 
 import styles from "./item.module.css";
 import { ItemType } from "@/types/item.type";
