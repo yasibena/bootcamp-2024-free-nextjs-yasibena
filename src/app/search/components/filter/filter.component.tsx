@@ -3,16 +3,16 @@
 import { useContext } from "react";
 
 import CardComponent from "@/components/card/card.component";
-import FilterButtonComponent from "@/components/filter-button/filter-button-component";
+// import FilterButtonComponent from "@/components/filter-button/filter-button-component";
 
 import { FilterContext } from "../../providers/filters/filters.provider";
 
-import { FiltersType } from "../../../../types/filters.type";
+import { FilterType } from "@/types/filters.type";
 
 import styles from "./filter.module.css";
 
 type Option = {
-  key: keyof FiltersType;
+  key: keyof FilterType;
   label: string;
 };
 
@@ -29,7 +29,7 @@ export default function FilterComponent({ title, options }: Props) {
       <div className={styles.filter}>
         <div className={styles.title}> {title} </div>
         <div className={styles.buttons}>
-          {options.map((option) => (
+          {/* {options.map((option) => (
             <FilterButtonComponent
               key={option.key}
               isActive={filters[option.key]}
@@ -37,8 +37,7 @@ export default function FilterComponent({ title, options }: Props) {
             >
               {option.label}
             </FilterButtonComponent>
-          ))}
-          {/* <FilterButtonComponent>فرد</FilterButtonComponent> */}
+          ))} */}
         </div>
       </div>
     </CardComponent>
