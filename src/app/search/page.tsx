@@ -1,14 +1,8 @@
 import React, { ReactElement } from "react";
-
-import FilterComponent from "@/app/search/components/";
-
 import FiltersProvider from "./providers/filters/filters.provider";
-
 import {books} from "@/mock/books";
-
 import styles from "./page.module.css";
-import ListComponent from "./components/list/list.component";
-import ItemsProvider from "./providers/filters/items.provider";
+
 import { FilterType } from "@/types/filters.type";
 import BooksProvider from "@/app/search/providers/books/books.provider";
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";

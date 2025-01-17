@@ -4,7 +4,7 @@ import { ReactElement, useState } from "react";
 
 import SelectComponent from "@/components/select/select.component";
 
-import { SelectOptionType } from "@/types/select-option.type";
+import { SelectOptionType } from "@/types/select.option.type";
 
 const options: SelectOptionType[] = [
   { value: "rating", label: "بهترین" },
