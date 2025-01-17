@@ -13,7 +13,7 @@ export default function Error({ error, reset }: Props) {
     <div className={styles["error"]}>
       <div className={styles.writings}>
         <div className={styles["status-code"]}>بدبخت شدیم!</div>
-        <h1>یک خطای غیرمنتظره رخ داده است.</h1>
+        <h1>یک خطای غیرمنتظره رخ داده است .</h1>
         <p>با عرض پوزش، لطفاً با تیم پشتیبانی تماس بگیرید.</p>
       </div>
       <div className={styles.visuals}>
