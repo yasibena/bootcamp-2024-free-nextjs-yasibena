@@ -1,68 +1,36 @@
 "use client";
 
-import { createContext, PropsWithChildren, useCallback, useState } from "react";
-import { FiltersType } from "../../../../types/filters.type";
+import { FilterType } from "@/types/filters.type";
+import { Dispatch, PropsWithChildren, ReactElement, useReducer } from "react";
+import {
+  FilterAction,
+  filterReducer,
+} from "@/app/search/reducers/filters.reducer";
+import { createContext } from "react";
 
-type ContextValue = {
-  filters: FiltersType;
-  changeFilter: <TKey extends keyof FiltersType>(
-    key: TKey,
-    value: FiltersType[TKey]
-  ) => void;
-  removeFilter: <TKey extends keyof FiltersType>(key: TKey) => void;
-  clearAll: () => void;
+type Value = {
+  filters: FilterType;
+  dispatchFilters: Dispatch<FilterAction>;
 };
 
-const defaultFilters: FiltersType = {
-  even: true,
-  odd: true,
-  three: true,
-  five: true,
-  seven: true,
-};
-
-export const FilterContext = createContext<ContextValue>({
-  filters: { ...defaultFilters },
-  changeFilter: () => {},
-  removeFilter: () => {},
-  clearAll: () => {},
+export const FiltersContext = createContext<Value>({
+  filters: {},
+  dispatchFilters: () => {},
 });
 
-type Props = PropsWithChildren;
+type Props = PropsWithChildren & {
+  defaultFilters: FilterType;
+};
 
-export default function FiltersProvider({ children }: Props) {
-  const [filters, setFilters] = useState<FiltersType>({ ...defaultFilters });
-
-  const changeFilter = useCallback(
-    <TKey extends keyof FiltersType>(
-      key: TKey,
-      value: FiltersType[TKey]
-    ): void => {
-      setFilters((old) => ({ ...old, [key]: value }));
-    },
-    []
-  );
-
-  const removeFilter = useCallback(
-    <TKey extends keyof FiltersType>(key: TKey): void => {
-      setFilters((old) => {
-        const clone = { ...old };
-        delete clone[key];
-        return clone;
-      });
-    },
-    []
-  );
-
-  const clearAll = useCallback((): void => {
-    setFilters({ ...defaultFilters });
-  }, []);
+export default function FiltersProvider({
+  children,
+  defaultFilters,
+}: Props): ReactElement {
+  const [filters, dispatchFilters] = useReducer(filterReducer, defaultFilters);
 
   return (
-    <FilterContext.Provider
-      value={{ filters, changeFilter, removeFilter, clearAll }}
-    >
+    <FiltersContext.Provider value={{ filters, dispatchFilters }}>
       {children}
-    </FilterContext.Provider>
+    </FiltersContext.Provider>
   );
 }

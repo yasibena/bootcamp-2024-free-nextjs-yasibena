@@ -3,9 +3,11 @@ export type BookModel = {
   name: string;
   image: string;
   year: number;
-  categories: string[];
+  category: string[] | undefined[] | undefined ;
+  genre?: string | undefined | undefined[];
+  format: string;
   author: string;
-  price: number;
+  price: string;
   inStock: boolean;
   brief: string;
   rating: number;

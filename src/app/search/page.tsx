@@ -1,42 +1,85 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-import FilterComponent from "./components/filter/filter.component";
+import FilterComponent from "@/app/search/components/";
 
 import FiltersProvider from "./providers/filters/filters.provider";
+
+import {books} from "@/mock/books";
 
 import styles from "./page.module.css";
 import ListComponent from "./components/list/list.component";
 import ItemsProvider from "./providers/filters/items.provider";
+import { FilterType } from "@/types/filters.type";
+import BooksProvider from "@/app/search/providers/books/books.provider";
+import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
-const items = Array(100)
-  .fill(null)
-  .map((_, i) => ({ value: i + 1 }));
+import FilterSummeryComponent from "@/app/search/components/filters-summery/filters-summary.component"
+import CategoryFilterComponent from "./components/category-filter/category-filter.component";
+import GenreFilterComponent from "./components/genre-filter/genre-filter.component";
+import FormatFilterComponent from "./components/format-filter/format-filter.component";
+import SortComponent from "./components/sort/sort.component";
+import StatsComponent from "./components/stats/stats.component";
+import ResultsComponent from "./components/result/result.component";
 
-export default function page() {
+type SearchParams = { [key: string]: string | string | string[] | undefined };
+
+type Props = {
+  searchParams: Promise<SearchParams>;
+};
+
+export default async function page({ searchParams }: Props): Promise<ReactElement> {
+  const defaultFilters = generateDefaultFilters(await searchParams);
+
   return (
-    <FiltersProvider>
-      <ItemsProvider items={items}>
+    <FiltersProvider defaultFilters={defaultFilters}>
+      <BooksProvider books={books}>
         <div className={styles.page}>
-          <div className={styles.filters}>
-            <FilterComponent
-              title="زوج یا فرد"
-              options={[
-                { key: "even", label: "زوج" },
-                { key: "odd", label: "فرد" },
-              ]}
-            />
-            <FilterComponent
-              title="بخش پذیری"
-              options={[
-                { key: "three", label: "بخش پدیری بر 3" },
-                { key: "five", label: "بخش پدیری بر 5" },
-                { key: "seven", label: "بخش پدیری بر 7" },
-              ]}
-            />
+          <div className={styles.search}>
+            <GlobalSearchBoxComponent />
           </div>
-          <ListComponent />
+          <div className={styles.secondContainer}>
+            <div className={styles.filters}>
+              <FilterSummeryComponent />
+              <CategoryFilterComponent />
+              <GenreFilterComponent />
+              <FormatFilterComponent />
+              {/* <PriceFilterComponent /> */}
+            </div>
+            {/* 
+          <div className={styles.toolbar}>
+            <div className={styles.stats}></div>
+          </div> */}
+            <div className={styles.results}>
+              <SortComponent />
+              <div className={styles.stats}>
+                <StatsComponent />
+              </div>
+              <ResultsComponent />
+            </div>
+          </div>
         </div>
-      </ItemsProvider>
+      </BooksProvider>
     </FiltersProvider>
   );
+}
+
+function generateDefaultFilters(searchParams: SearchParams): FilterType {
+  const { query, category, genre, format, price } = searchParams;
+
+  return {
+    query: normalizedFilter(query),
+    category: normalizedFilter(category),
+    genre: normalizedFilter(genre),
+    format: normalizedFilter(format),
+    price: normalizedFilter(price),
+  };
+}
+
+function normalizedFilter(
+  value: string | string[] | undefined
+): string | undefined {
+  if (Array.isArray(value)) {
+    return value[0];
+  }
+  return value;
 }

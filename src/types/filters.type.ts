@@ -1,7 +1,7 @@
-export type FilterType={
-    query?: string,
-    category?: string,
-    genre?: string,
-    foramt?: string,
-    price?:number
-}
+export type FilterType = {
+  query?: string;
+  category?: string;
+  genre?: string;
+  format?: string;
+  price?: string;
+};
