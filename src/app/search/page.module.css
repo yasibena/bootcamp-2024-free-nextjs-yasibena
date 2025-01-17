@@ -8,16 +8,12 @@
   margin-block-end: 2rem;
 
   .filters {
-    display: flex
-;
+    display: flex;
     gap: 1rem;
     flex-direction: column;
-  
   }
-
-  
 }
-.secondContainer{
+.secondContainer {
   display: grid;
   grid-template-columns: 2fr 4fr;
   gap: 2rem;

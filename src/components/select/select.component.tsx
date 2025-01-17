@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   ReactElement,
@@ -43,7 +43,7 @@ export default function SelectComponent({
   const maximumCharactersCount = useMemo(() => {
     return Math.max(
       placeholder?.length ?? 0,
-      ...options.map((option) => option.label.length)
+      ...options.map((option) => option.label.length),
     );
   }, [placeholder, options]);
 
@@ -53,12 +53,12 @@ export default function SelectComponent({
         onSelectedOptionChange?.(option);
       }
     },
-    [onSelectedOptionChange, selectedOption]
+    [onSelectedOptionChange, selectedOption],
   );
 
   const optionClickHandler = (
     e: MouseEvent<HTMLLIElement>,
-    option: SelectOptionType
+    option: SelectOptionType,
   ): void => {
     e.stopPropagation();
 
@@ -140,7 +140,7 @@ export default function SelectComponent({
       className={clsx(
         styles.container,
         isOpen && styles.open,
-        floating && styles.floating
+        floating && styles.floating,
       )}
     >
       {title && <span className={styles.title}>{title}: </span>}
@@ -163,7 +163,7 @@ export default function SelectComponent({
             className={clsx(
               styles.option,
               option === selectedOption && styles.selected,
-              index === highlightedIndex && styles.highlighted
+              index === highlightedIndex && styles.highlighted,
             )}
             onMouseEnter={() => setHighlightedIndex(index)}
             onClick={(e) => optionClickHandler(e, option)}

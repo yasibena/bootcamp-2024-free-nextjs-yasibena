@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { BookModel } from "@/types/models/book.models";
 import {
@@ -38,7 +38,7 @@ export default function BooksProvider({ children, books }: Props) {
         doesInclude(book.price, filters.price)
       );
     },
-    [filters]
+    [filters],
   );
 
   useEffect(() => {
@@ -68,7 +68,7 @@ function doesSomeInclude(items: string[], query?: string): boolean {
 
 function doesInclude(
   item: string | undefined[] | undefined | string[],
-  query?: string
+  query?: string,
 ): boolean {
   if (!query) {
     return true;
@@ -78,7 +78,7 @@ function doesInclude(
     return item?.toLowerCase().includes(query.toLowerCase());
   } else if (Array.isArray(item)) {
     return item.some((eachItem) =>
-      eachItem?.toLowerCase().includes(query.toLowerCase())
+      eachItem?.toLowerCase().includes(query.toLowerCase()),
     );
   }
 

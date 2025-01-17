@@ -3,7 +3,7 @@ export type BookModel = {
   name: string;
   image: string;
   year: number;
-  category: string[] | undefined[] | undefined ;
+  category: string[] | undefined[] | undefined;
   genre?: string | undefined | undefined[];
   format: string;
   author: string;
