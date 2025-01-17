@@ -1,6 +1,6 @@
 :root {
-  --color-gray-99: hsl(200deg 10% 99%);
-  --color-gray-97: hsl(200deg 10% 97%);
+  --color-gray-99: hsl(180, 2%, 23%);
+  --color-gray-97: hsl(202, 77%, 65%);
   --color-gray-93: hsl(200deg 10% 93%);
   --color-gray-98: hsl(0deg 0% 98%);
   --color-gray-90: hsl(0deg 0% 90%);
@@ -15,7 +15,7 @@
 
   --color-surface-300: var(--color-gray-93);
   --color-surface-400: var(--color-gray-97);
-  --color-surface-700: var(--color-gray-99);
+  --color-surface-700: var(--color-gray-16);
 
   --color-text-400: var(--color-gray-10);
   --color-text-700: var(--color-gray-40);
@@ -130,6 +130,7 @@ body {
   --color-gray-20: #4cabe6;
   --color-gray-16: #c3e0f4;
   --color-primary: #62b2e4;
+  /* --color-surface-700:#292929; */
   color-scheme: light;
 }
 
