@@ -15,7 +15,7 @@ export default function FormatFilterComponent(): ReactElement {
 
   return (
     <RadioFilterComponent
-      title="جنسیت پزشک"
+      title=" فرمت کتاب"
       name="format"
       options={[
         { value: "صوتی", label: "صوتی" },

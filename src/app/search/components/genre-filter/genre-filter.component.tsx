@@ -15,7 +15,7 @@ export default function GenreFilterComponent(): ReactElement {
 
   return (
     <RadioFilterComponent
-      title="جنسیت پزشک"
+      title=" ژانر"
       name="gender"
       options={[
         { value: "حماسی", label: "حماسی" },
