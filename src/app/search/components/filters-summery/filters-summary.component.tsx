@@ -14,7 +14,7 @@ export default function FiltersSummaryComponent() {
     return (
       !filters?.query &&
       !filters?.genre &&
-      !!filters?.category &&
+      !filters?.category &&
       !filters?.format &&
       !filters?.price
     );
