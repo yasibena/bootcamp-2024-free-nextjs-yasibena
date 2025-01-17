@@ -2,8 +2,6 @@
 
 import { ReactElement, useContext } from "react";
 
-
-
 import styles from "./stats.module.css";
 import { BooksContext } from "../../providers/books/books.provider";
 

@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react";
 import FiltersProvider from "./providers/filters/filters.provider";
-import {books} from "@/mock/books";
+import { books } from "@/mock/books";
 import styles from "./page.module.css";
 
 import { FilterType } from "@/types/filters.type";
 import BooksProvider from "@/app/search/providers/books/books.provider";
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
-import FilterSummeryComponent from "@/app/search/components/filters-summery/filters-summary.component"
+import FilterSummeryComponent from "@/app/search/components/filters-summery/filters-summary.component";
 import CategoryFilterComponent from "./components/category-filter/category-filter.component";
 import GenreFilterComponent from "./components/genre-filter/genre-filter.component";
 import FormatFilterComponent from "./components/format-filter/format-filter.component";
@@ -21,7 +21,9 @@ type Props = {
   searchParams: Promise<SearchParams>;
 };
 
-export default async function page({ searchParams }: Props): Promise<ReactElement> {
+export default async function page({
+  searchParams,
+}: Props): Promise<ReactElement> {
   const defaultFilters = generateDefaultFilters(await searchParams);
 
   return (
@@ -70,7 +72,7 @@ function generateDefaultFilters(searchParams: SearchParams): FilterType {
 }
 
 function normalizedFilter(
-  value: string | string[] | undefined
+  value: string | string[] | undefined,
 ): string | undefined {
   if (Array.isArray(value)) {
     return value[0];
