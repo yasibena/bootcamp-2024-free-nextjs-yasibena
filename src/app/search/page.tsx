@@ -18,13 +18,11 @@ import ResultsComponent from "./components/result/result.component";
 type SearchParams = { [key: string]: string | string | string[] | undefined };
 
 type Props = {
-  searchParams: Promise<SearchParams>;
+  searchParams: SearchParams;
 };
 
-export default async function page({
-  searchParams,
-}: Props): Promise<ReactElement> {
-  const defaultFilters = generateDefaultFilters(await searchParams);
+export default function page({ searchParams }: Props): ReactElement {
+  const defaultFilters = generateDefaultFilters(searchParams);
 
   return (
     <FiltersProvider defaultFilters={defaultFilters}>
@@ -72,7 +70,7 @@ function generateDefaultFilters(searchParams: SearchParams): FilterType {
 }
 
 function normalizedFilter(
-  value: string | string[] | undefined,
+  value: string | string[] | undefined
 ): string | undefined {
   if (Array.isArray(value)) {
     return value[0];
