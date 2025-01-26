@@ -6,8 +6,7 @@
     gap: 20px;
 
     @media screen and (max-width: 768px) {
-      /* Adjust 768px to your desired breakpoint */
-      grid-template-columns: 1fr; /* Switch to one column */
+      grid-template-columns: 1fr;
     }
   }
 
@@ -47,7 +46,7 @@
         > button {
           border: none;
           cursor: pointer;
-          background: var(--color-gray-97);
+          background: var(--color-primary);
           color: var(--color-gray-93);
           padding: 5px 20px;
           border-radius: var(--border-radius);
@@ -58,38 +57,33 @@
         }
       }
 
-      .comments{
-        
-        .commentTitle{
+      .comments {
+        .commentTitle {
           display: flex;
         }
 
-        .eachComment{
-          /* display: flex;
-          flex-direction: column;
-          text-align: right; */
+        .eachComment {
           display: grid;
-           grid-template-columns: 1fr 4fr;
-          
-          .right{
+          grid-template-columns: 1fr 4fr;
+
+          .right {
             display: grid;
-          grid-template-columns: 0.2fr 2fr;
-          margin-bottom: 10px;
+            grid-template-columns: 0.2fr 2fr;
+            margin-bottom: 10px;
           }
 
-          .left{
+          .left {
             display: flex;
             justify-content: center;
             align-items: center;
           }
         }
-       
       }
 
-      .line{
+      .line {
         background: var(--color-gray-90);
         margin: 15px 0;
-        height:2px;
+        height: 2px;
       }
     }
   }
