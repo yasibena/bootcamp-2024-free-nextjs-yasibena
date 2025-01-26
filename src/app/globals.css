@@ -26,7 +26,7 @@
   --color-primary: hsl(203, 71%, 64%);
   --color-primary-fade: hsl(335deg 71% 94%);
   --color-primary-lighter: hsl(180, 71%, 68%);
-  --color-primary-darker: hsl(187, 71%, 60%);
+  --color-primary-darker: hsl(202, 41%, 50%);
   --color-primary-opposite: var(--color-gray-10);
 
   --border-radius: 0.875rem;

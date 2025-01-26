@@ -1,0 +1,96 @@
+.eachBookContainer {
+  .topSection {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 20px 10px 40px 10px;
+    gap: 20px;
+
+    @media screen and (max-width: 768px) {
+      /* Adjust 768px to your desired breakpoint */
+      grid-template-columns: 1fr; /* Switch to one column */
+    }
+  }
+
+  .topSection {
+    .eachDescriptionContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .bold {
+        font-weight: 600;
+      }
+
+      .eachImage {
+        > Image {
+          object-fit: cover;
+        }
+      }
+
+      .categoryLabel {
+        display: inline;
+        padding: 5px 15px;
+        border-radius: var(--border-radius);
+        color: var(--color-primary-darker);
+      }
+
+      .instockLabel {
+        > span {
+          display: inline;
+          background: var(--color-gray-93);
+          padding: 5px 15px;
+          border-radius: var(--border-radius);
+          color: var(--color-primary);
+        }
+      }
+      .button {
+        > button {
+          border: none;
+          cursor: pointer;
+          background: var(--color-gray-97);
+          color: var(--color-gray-93);
+          padding: 5px 20px;
+          border-radius: var(--border-radius);
+          transition: all ease 0.2s;
+          &:hover {
+            background: var(--color-primary-darker);
+          }
+        }
+      }
+
+      .comments{
+        
+        .commentTitle{
+          display: flex;
+        }
+
+        .eachComment{
+          /* display: flex;
+          flex-direction: column;
+          text-align: right; */
+          display: grid;
+           grid-template-columns: 1fr 4fr;
+          
+          .right{
+            display: grid;
+          grid-template-columns: 0.2fr 2fr;
+          margin-bottom: 10px;
+          }
+
+          .left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+       
+      }
+
+      .line{
+        background: var(--color-gray-90);
+        margin: 15px 0;
+        height:2px;
+      }
+    }
+  }
+}

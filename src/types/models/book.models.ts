@@ -1,3 +1,10 @@
+interface Comment {
+  name: string;
+  stars: number;
+  date: string;
+  desc:string
+}
+
 export type BookModel = {
   id: string;
   name: string;
@@ -13,4 +20,5 @@ export type BookModel = {
   rating: number;
   amount: number;
   totalVotes: number;
+  comments?: Comment[];
 };
