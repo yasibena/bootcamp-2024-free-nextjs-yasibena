@@ -1,6 +1,6 @@
 # Bookify-next
 
-Visit [Demo](https://bookify-nextt.vercel.app/) page
+Visit [Demo](https://bootcamp-2024-free-nextjs-yasibena-lug690qed-yasis-projects.vercel.app/) page
 
 ## Getting Started
 
