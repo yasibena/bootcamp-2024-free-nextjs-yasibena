@@ -1,8 +1,8 @@
 .filters-summary {
   .deleteButton {
     display: flex;
-    background-color: #ff4757;
-    color: #ffffff;
+    background-color: var(--color-danger-lighter);
+    color: var(--color-gray-99);
     border: none;
     border-radius: var(--border-radius);
     padding: 8px 16px;
@@ -14,6 +14,7 @@
       background-color 0.3s ease,
       transform 0.2s ease;
   }
+  
   .bottom-container {
     display: flex;
 

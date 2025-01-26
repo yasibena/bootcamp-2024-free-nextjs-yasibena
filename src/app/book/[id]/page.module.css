@@ -1,5 +1,5 @@
-.eachBookContainer {
-  .topSection {
+.each-book-container {
+  .top-section {
     display: grid;
     grid-template-columns: auto 1fr;
     margin: 20px 10px 40px 10px;
@@ -10,8 +10,8 @@
     }
   }
 
-  .topSection {
-    .eachDescriptionContainer {
+  .top-section {
+    .each-description-container {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -20,20 +20,20 @@
         font-weight: 600;
       }
 
-      .eachImage {
+      .each-image {
         > Image {
           object-fit: cover;
         }
       }
 
-      .categoryLabel {
+      .category-label {
         display: inline;
         padding: 5px 15px;
         border-radius: var(--border-radius);
         color: var(--color-primary-darker);
       }
 
-      .instockLabel {
+      .in-stock-label {
         > span {
           display: inline;
           background: var(--color-gray-93);
@@ -42,6 +42,7 @@
           color: var(--color-primary);
         }
       }
+
       .button {
         > button {
           border: none;
@@ -51,6 +52,7 @@
           padding: 5px 20px;
           border-radius: var(--border-radius);
           transition: all ease 0.2s;
+
           &:hover {
             background: var(--color-primary-darker);
           }
@@ -58,11 +60,11 @@
       }
 
       .comments {
-        .commentTitle {
+        .comment-title {
           display: flex;
         }
 
-        .eachComment {
+        .each-comment {
           display: grid;
           grid-template-columns: 1fr 4fr;
 

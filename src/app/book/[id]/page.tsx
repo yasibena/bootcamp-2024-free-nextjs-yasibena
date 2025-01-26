@@ -1,4 +1,4 @@
-import  { Suspense } from "react";
+import { Suspense } from "react";
 
 import moment from "moment";
 
@@ -31,14 +31,14 @@ export default async function Page({ params }: Props) {
   };
 
   return (
-    <div className={styles.eachBookContainer}>
-      <div className={styles.topSection}>
-        <div className={styles.eachImage}>
+    <div className={styles["each-book-container"]}>
+      <div className={styles["top-section"]}>
+        <div className={styles["each-image"]}>
           <Image src={book?.image} alt={book?.name} width={400} height={400} />
         </div>
 
-        <div className={styles.eachDescriptionContainer}>
-          <div className={styles.instockLabel}>
+        <div className={styles["each-description-container"]}>
+          <div className={styles["in-stock-label"]}>
             {book?.inStock == true ? <span>موجود</span> : <span>ناموجود</span>}
           </div>
           <h1>{book?.name}</h1>
@@ -52,7 +52,7 @@ export default async function Page({ params }: Props) {
               <span>{book?.rating}</span>
             </div>
           </div>
-          <div className={styles.eachPrice}>{book?.price} تومان</div>
+          <div className={styles["each-price"]}>{book?.price} تومان</div>
           <div className={styles.description}>
             <Suspense fallback="...">
               <BrifeComponent content={book?.brief} />
@@ -64,7 +64,7 @@ export default async function Page({ params }: Props) {
           <div>
             <span>دسته بندی :</span>
             {book?.category?.map((each, index) => (
-              <span className={styles.categoryLabel} key={index}>
+              <span className={styles["category-label"]} key={index}>
                 {each}
               </span>
             ))}
@@ -73,12 +73,12 @@ export default async function Page({ params }: Props) {
           <div className={styles.line}></div>
 
           <div className={styles.comments}>
-            <div className={styles.commentTitle}>
+            <div className={styles["comment-title"]}>
               <MingcuteComments />
               <h3>نظرات</h3>
             </div>
             {book?.comments?.map((comment, index) => (
-              <div key={index} className={styles.eachComment}>
+              <div key={index} className={styles["each-comment"]}>
                 <div className={styles.right}>
                   <div className={styles.user}>
                     <MingcuteUser />
