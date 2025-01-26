@@ -11,8 +11,6 @@ import styles from "./results.module.css";
 import { BookModel } from "@/types/models/book.models";
 import { BooksContext } from "../../providers/books/books.provider";
 
-import Image from "next/image";
-
 export default function ResultsComponent(): ReactElement {
   const { filteredBooks } = useContext(BooksContext);
 
@@ -22,17 +20,18 @@ export default function ResultsComponent(): ReactElement {
         <li key={book.id}>
           <div className={styles.header}>
             <div className={styles.image}>
-              <Image
-                src={book?.image}
+              <img
+                src={book.image}
                 alt="عکس کتاب موردنظر"
                 width={150}
                 height={150}
+                style={{ backgroundColor: "transparent" }}
               />
             </div>
             <div className={styles.name}>{book.name}</div>
             <div className={styles.brief}>{book.brief}</div>
             <div className={styles.badges}>
-              {(book?.category || []).map((each) => (
+              {book?.category?.map((each) => (
                 <div key={each} className={styles.badge}>
                   {each}
                 </div>
