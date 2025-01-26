@@ -37,12 +37,7 @@ export default function page({ searchParams }: Props): ReactElement {
               <CategoryFilterComponent />
               <GenreFilterComponent />
               <FormatFilterComponent />
-              {/* <PriceFilterComponent /> */}
             </div>
-            {/* 
-          <div className={styles.toolbar}>
-            <div className={styles.stats}></div>
-          </div> */}
             <div className={styles.results}>
               <SortComponent />
               <div className={styles.stats}>
@@ -77,5 +72,3 @@ function normalizedFilter(
   }
   return value;
 }
-
-
