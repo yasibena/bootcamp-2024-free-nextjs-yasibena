@@ -12,8 +12,12 @@ import MingcuteLightModeFill from "@/icons/MingcuteLightMode";
 
 export default function HeaderComponent() {
   const pathname = usePathname();
+
   const [lightMode, setLightMode] = useState(() => {
-    return localStorage.getItem("lightMode") === "true";
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("lightMode") === "true";
+    }
+    return false;
   });
 
   const toggleMode = () => {
@@ -21,15 +25,15 @@ export default function HeaderComponent() {
   };
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (lightMode) {
-      root.classList.add("light-mode");
-      root.classList.remove("dark-mode");
-    } else {
-      root.classList.add("dark-mode");
-      root.classList.remove("light-mode");
+    if (typeof window !== "undefined") {
+      const root = document.documentElement;
+      if (lightMode) {
+        root.setAttribute("data-theme", "light");
+      } else {
+        root.setAttribute("data-theme", "dark");
+      }
+      localStorage.setItem("lightMode", lightMode.toString());
     }
-    localStorage.setItem("lightMode", lightMode.toString());
   }, [lightMode]);
 
   return (
