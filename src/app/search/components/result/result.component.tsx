@@ -12,11 +12,13 @@ import { BookModel } from "@/types/models/book.models";
 import { BooksContext } from "../../providers/books/books.provider";
 
 export default function ResultsComponent(): ReactElement {
-  const { filteredBooks } = useContext(BooksContext);
+  const { filteredBooks, sortedBooks } = useContext(BooksContext);
+
+  const booksToRender = sortedBooks?.length > 0 ? sortedBooks : filteredBooks;
 
   return (
     <ul className={styles.results}>
-      {filteredBooks.map((book: BookModel) => (
+      {booksToRender.map((book: BookModel) => (
         <li key={book.id}>
           <div className={styles.header}>
             <div className={styles.image}>
