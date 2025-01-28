@@ -1,7 +1,5 @@
 import { Suspense } from "react";
 
-import moment from "moment";
-
 import { books } from "@/mock/books";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -28,6 +26,18 @@ export default async function Page({ params }: Props) {
     return Array.from({ length: stars }, (_, index) => (
       <MingcuteStarFill key={index} />
     ));
+  };
+
+  const FormattedDate = (date: string | Date | undefined): string => {
+    if (!date) return "";
+
+    const dateObj = typeof date === "string" ? new Date(date) : date;
+
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(dateObj);
   };
 
   return (
@@ -86,7 +96,7 @@ export default async function Page({ params }: Props) {
                   <div>
                     <div>{renderStars(comment?.stars)}</div>
                     <div>{comment.name}</div>
-                    <div>{moment(comment.date).format("yy/mm/dd")}</div>
+                    <div>{FormattedDate(comment.date)}</div>
                   </div>
                 </div>
 
