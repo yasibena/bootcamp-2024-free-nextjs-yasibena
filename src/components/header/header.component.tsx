@@ -13,13 +13,14 @@ import MingcuteLightModeFill from "@/icons/MingcuteLightMode";
 export default function HeaderComponent() {
   const pathname = usePathname();
 
- const [lightMode, setLightMode] = useState(() => {
-   if (typeof window !== "undefined") {
-     const savedTheme = localStorage.getItem("lightMode");
-     return savedTheme ? savedTheme === "true" : true;
-   }
-   return true; 
- });
+  const [lightMode, setLightMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return true;
+    }
+
+    const savedTheme = localStorage.getItem("lightMode");
+    return savedTheme ? savedTheme === "true" : true;
+  });
 
   const toggleMode = () => {
     setLightMode((prevMode) => !prevMode);

@@ -23,11 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="fa"
-      dir="rtl"
-      className={vazirmatn.className}
-    >
+    <html lang="fa" dir="rtl" className={vazirmatn.className}>
       <body>
         <HeaderComponent />
         <main>{children}</main>

@@ -14,6 +14,7 @@ import FormatFilterComponent from "./components/format-filter/format-filter.comp
 import SortComponent from "./components/sort/sort.component";
 import StatsComponent from "./components/stats/stats.component";
 import ResultsComponent from "./components/result/result.component";
+import SortProvider from "./providers/sort/sort.provider";
 
 type SearchParams = { [key: string]: string | string | string[] | undefined };
 
@@ -25,39 +26,41 @@ export default function page({ searchParams }: Props): ReactElement {
   const defaultFilters = generateDefaultFilters(searchParams);
 
   return (
-    <FiltersProvider defaultFilters={defaultFilters}>
-      <BooksProvider books={books}>
-        <div className={styles.page}>
-          <div className={styles.search}>
-            <GlobalSearchBoxComponent />
-          </div>
-          <div className={styles.secondContainer}>
-            <div className={styles.filters}>
-              <FilterSummeryComponent />
-              <CategoryFilterComponent />
-              <GenreFilterComponent />
-              <FormatFilterComponent />
+    <SortProvider defaultSortBy={{ sortBy: "" }}>
+      <FiltersProvider defaultFilters={defaultFilters}>
+        <BooksProvider books={books}>
+          <div className={styles.page}>
+            <div className={styles.search}>
+              <GlobalSearchBoxComponent />
             </div>
-            <div className={styles.results}>
-              <SortComponent />
-              <div className={styles.stats}>
-                <StatsComponent />
+            <div className={styles.secondContainer}>
+              <div className={styles.filters}>
+                <FilterSummeryComponent />
+                <CategoryFilterComponent />
+                <GenreFilterComponent />
+                <FormatFilterComponent />
               </div>
-              <ResultsComponent />
+              <div className={styles.results}>
+                <SortComponent />
+                <div className={styles.stats}>
+                  <StatsComponent />
+                </div>
+                <ResultsComponent />
+              </div>
             </div>
           </div>
-        </div>
-      </BooksProvider>
-    </FiltersProvider>
+        </BooksProvider>
+      </FiltersProvider>
+    </SortProvider>
   );
 }
 
 function generateDefaultFilters(searchParams: SearchParams): FilterType {
-  const { query, category, genre, format, price } = searchParams;
+  const { query, categories, genre, format, price } = searchParams;
 
   return {
     query: normalizedFilter(query),
-    category: normalizedFilter(category),
+    categories: normalizedFilter(categories),
     genre: normalizedFilter(genre),
     format: normalizedFilter(format),
     price: normalizedFilter(price),
@@ -65,7 +68,7 @@ function generateDefaultFilters(searchParams: SearchParams): FilterType {
 }
 
 function normalizedFilter(
-  value: string | string[] | undefined
+  value: string | string[] | undefined,
 ): string | undefined {
   if (Array.isArray(value)) {
     return value[0];

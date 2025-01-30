@@ -2,7 +2,7 @@ interface Comment {
   name: string;
   stars: number;
   date: string;
-  desc:string
+  description: string;
 }
 
 export type BookModel = {
@@ -10,7 +10,7 @@ export type BookModel = {
   name: string;
   image: string;
   year: number;
-  category: string[] | undefined[] | undefined;
+  categories: string[] | undefined[] | undefined;
   genre?: string | undefined | undefined[];
   format: string;
   author: string;
@@ -20,5 +20,5 @@ export type BookModel = {
   rating: number;
   amount: number;
   totalVotes: number;
-  comments?: Comment[];
+  comments: Comment[];
 };
