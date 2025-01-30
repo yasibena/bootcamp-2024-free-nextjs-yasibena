@@ -26,12 +26,6 @@ type Props = PropsWithChildren & {
   books: BookModel[];
 };
 
-type Item = {
-  year: number;
-  rating: number;
-  totalVotes: number;
-};
-
 export default function BooksProvider({ children, books }: Props) {
   const { filters } = useContext(FiltersContext);
   const { sortBy } = useContext(SortContext);
@@ -43,13 +37,13 @@ export default function BooksProvider({ children, books }: Props) {
     (book: BookModel): boolean => {
       return (
         doesBookInclude(book, filters.query) &&
-        doesInclude(book?.category, filters.category) &&
+        doesInclude(book?.categories, filters.categories) &&
         doesInclude(book?.genre, filters.genre) &&
         doesInclude(book.format, filters.format) &&
         doesInclude(book.price, filters.price)
       );
     },
-    [filters]
+    [filters],
   );
 
   useEffect(() => {
@@ -84,17 +78,17 @@ function doesSomeInclude(items: string[], query?: string): boolean {
 
 function doesInclude(
   item: string | undefined[] | undefined | string[],
-  query?: string
+  query?: string,
 ): boolean {
   if (!query) {
     return true;
   }
 
-  if (typeof item == "string") {
+  if (typeof item === "string") {
     return item?.toLowerCase().includes(query.toLowerCase());
   } else if (Array.isArray(item)) {
     return item.some((eachItem) =>
-      eachItem?.toLowerCase().includes(query.toLowerCase())
+      eachItem?.toLowerCase().includes(query.toLowerCase()),
     );
   }
 
@@ -103,13 +97,13 @@ function doesInclude(
 
 function sortBook(books: BookModel[], sortby: string | number): BookModel[] {
   return [...books].sort((a, b) => {
-    if (sortby == "year") {
+    if (sortby === "year") {
       return b.year - a.year;
     }
-    if (sortby == "rating") {
+    if (sortby === "rating") {
       return b.rating - a.rating;
     }
-    if (sortby == "totalVotes") {
+    if (sortby === "totalVotes") {
       return b.totalVotes - a.totalVotes;
     }
 

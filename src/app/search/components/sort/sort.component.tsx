@@ -15,7 +15,7 @@ const options: SelectOptionType[] = [
 
 export default function SortComponent(): ReactElement {
   const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
-    options[0]
+    options[0],
   );
 
   const { dispatchSort } = useContext(SortContext);

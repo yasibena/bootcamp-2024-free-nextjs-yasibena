@@ -3,7 +3,7 @@ import styles from "./loading.module.css";
 
 export default function Loading(): ReactElement {
   const count: number = 16;
-  const duration: number = 2; 
+  const duration: number = 2;
 
   const delays: number[] = Array(count)
     .fill(0)
@@ -20,11 +20,11 @@ export default function Loading(): ReactElement {
               style={
                 {
                   "--delay": delay + "s",
-                  "--angle": (360 / count) * index + "deg", 
+                  "--angle": (360 / count) * index + "deg",
                 } as CSSProperties
               }
             ></i>
-          )
+          ),
         )}
       </div>
     </div>

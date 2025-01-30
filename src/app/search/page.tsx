@@ -56,11 +56,11 @@ export default function page({ searchParams }: Props): ReactElement {
 }
 
 function generateDefaultFilters(searchParams: SearchParams): FilterType {
-  const { query, category, genre, format, price } = searchParams;
+  const { query, categories, genre, format, price } = searchParams;
 
   return {
     query: normalizedFilter(query),
-    category: normalizedFilter(category),
+    categories: normalizedFilter(categories),
     genre: normalizedFilter(genre),
     format: normalizedFilter(format),
     price: normalizedFilter(price),
@@ -68,7 +68,7 @@ function generateDefaultFilters(searchParams: SearchParams): FilterType {
 }
 
 function normalizedFilter(
-  value: string | string[] | undefined
+  value: string | string[] | undefined,
 ): string | undefined {
   if (Array.isArray(value)) {
     return value[0];

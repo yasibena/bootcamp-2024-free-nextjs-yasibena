@@ -2,7 +2,7 @@ import { SortType } from "@/types/sort.type";
 
 export type SortAction = {
   type: string;
-  sortBy?: string | number; 
+  sortBy?: string | number;
 };
 
 export function sortReducer(state: SortType, action: SortAction): SortType {
