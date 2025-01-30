@@ -24,8 +24,8 @@
 
       background-color: var(--color-gray-10);
 
-      border-radius: 999rem;
-
+      border-radius: 50%;
+      
       transform: translate(-50%, -50%) rotate(var(--angle)) translate(50px);
       animation: pulse var(--duration) infinite ease-in-out;
       animation-delay: var(--delay);
@@ -36,9 +36,9 @@
 @keyframes pulse {
   0%,
   100% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translate(50px) scale(1);
   }
   50% {
-    transform: scale(1.5);
+    transform:translate(-50%, -50%) rotate(var(--angle)) translate(50px) scale(1.5);
   }
 }
