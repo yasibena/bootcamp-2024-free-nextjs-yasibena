@@ -14,7 +14,7 @@ export default function HeaderComponent() {
   const pathname = usePathname();
 
   const [lightMode, setLightMode] = useState(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window === "undefined") {
       return true;
     }
 
