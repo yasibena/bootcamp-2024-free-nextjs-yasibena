@@ -1,6 +1,6 @@
 .container {
   position: relative;
-   width: auto;
+  width: auto;
   display: flex;
   width: 250px;
   align-items: center;

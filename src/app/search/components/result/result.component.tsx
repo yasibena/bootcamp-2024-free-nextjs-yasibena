@@ -20,7 +20,7 @@ export default function ResultsComponent(): ReactElement {
   const truncateText = (
     text: string,
     length: number,
-    ellipsis: string = "..."
+    ellipsis: string = "...",
   ) => {
     if (text.length <= length) return text;
     return text.slice(0, length) + ellipsis;
