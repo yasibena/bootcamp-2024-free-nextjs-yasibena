@@ -3,11 +3,11 @@
   align-items: center;
   gap: 0.5rem;
 
-  inline-size: min(50rem, 100%);
+  width: 950px;
 
   padding-inline: 1rem;
-
-  border: 1px solid var(--color-gray-20);
+  margin-right: 250px;
+  border: 1px solid var(--color-primary-fade);
   border-radius: 999rem;
 
   .prefix {

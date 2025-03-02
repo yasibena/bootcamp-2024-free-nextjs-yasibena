@@ -1,6 +1,7 @@
 .filters-summary {
   .deleteButton {
     display: flex;
+    justify-content: center;
     background-color: var(--color-danger-lighter);
     color: var(--color-gray-99);
     border: none;
@@ -8,6 +9,7 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: 600;
+    
     cursor: pointer;
     margin: 0.625rem 0;
     transition:
@@ -16,7 +18,7 @@
   }
 
   .bottom-container {
-    display: flex;
+
 
     .title {
       font-weight: 600;

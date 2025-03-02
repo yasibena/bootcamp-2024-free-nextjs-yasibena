@@ -1,7 +1,8 @@
 .container {
   position: relative;
-
+   width: auto;
   display: flex;
+  width: 250px;
   align-items: center;
   gap: 0.5em;
 
