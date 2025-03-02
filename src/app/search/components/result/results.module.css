@@ -73,11 +73,9 @@
 
           place-items: center;
 
-          height: 0;
+          place-items: center;
 
-          min-height: 40px;
-
-          color: #000;
+          color: var(--color-gray-10);
 
           font-weight: 600;
         }
@@ -86,6 +84,8 @@
 
     .address {
       grid-area: address;
+
+      margin-right: 155px;
 
       overflow: hidden;
 

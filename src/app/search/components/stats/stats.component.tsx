@@ -10,7 +10,7 @@ export default function StatsComponent(): ReactElement {
 
   return (
     <div className={styles.stats}>
-      {filteredBooks.length.toLocaleString()} نتیجه
+      {filteredBooks.length.toLocaleString()} <span>نتیجه</span>
     </div>
   );
 }

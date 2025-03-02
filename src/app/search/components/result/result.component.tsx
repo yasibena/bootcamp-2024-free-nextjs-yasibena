@@ -5,18 +5,30 @@ import { ReactElement, useContext } from "react";
 import Link from "next/link";
 
 import MingcuteStarFill from "@/icons/MingcuteStarFill";
-import MingcuteLocationLine from "@/icons/MingcuteLocationLine";
+
+import MingcutePenLine from "@/icons/MingcutePenLine";
 
 import styles from "./results.module.css";
 import { BookModel } from "@/types/models/book.models";
 import { BooksContext } from "../../providers/books/books.provider";
 
 export default function ResultsComponent(): ReactElement {
-  const { filteredBooks } = useContext(BooksContext);
+  const { filteredBooks, sortedBooks } = useContext(BooksContext);
+
+  const booksToRender = sortedBooks?.length > 0 ? sortedBooks : filteredBooks;
+
+  const truncateText = (
+    text: string,
+    length: number,
+    ellipsis: string = "...",
+  ) => {
+    if (text.length <= length) return text;
+    return text.slice(0, length) + ellipsis;
+  };
 
   return (
     <ul className={styles.results}>
-      {filteredBooks.map((book: BookModel) => (
+      {booksToRender.map((book: BookModel) => (
         <li key={book.id}>
           <div className={styles.header}>
             <div className={styles.image}>
@@ -29,17 +41,17 @@ export default function ResultsComponent(): ReactElement {
               />
             </div>
             <div className={styles.name}>{book.name}</div>
-            <div className={styles.brief}>{book.brief}</div>
+            <div className={styles.brief}>{truncateText(book.brief, 200)}</div>
             <div className={styles.badges}>
-              {book?.category?.map((each) => (
-                <div key={each} className={styles.badge}>
-                  {each}
+              {book?.categories?.map((category) => (
+                <div key={category} className={styles.badge}>
+                  {category}
                 </div>
               ))}
             </div>
           </div>
           <div className={styles.address}>
-            <MingcuteLocationLine /> نویسنده: {book.author}
+            <MingcutePenLine /> نویسنده: {book.author}
           </div>
           <div className={styles.actions}>
             <div className={styles.rating}>
