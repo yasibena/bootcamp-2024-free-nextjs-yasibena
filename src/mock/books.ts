@@ -82,7 +82,8 @@ export const books: BookModel[] = [
   {
     id: "3",
     name: "بوف کور",
-    image: "https://example.com/blind-owl.jpg",
+    image:
+      "https://dkstatics-public.digikala.com/digikala-products/88c3ad66ef654c21695b0653ab4c442893df3f80_1631630935.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
     year: 1315,
     format: "چاپی",
     genre: "سوررئالیسم",
